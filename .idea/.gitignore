@@ -1,2 +1,6 @@
 # Default ignored files
 /workspace.xml
+/misc.xml
+/modules.xml
+/todos-vuejs.iml
+/vcs.xml
