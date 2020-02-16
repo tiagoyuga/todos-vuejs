@@ -21,7 +21,7 @@
 
         <h1 class="title">Todos</h1>
 
-        <input type="text" class="input" placeholder="What has to be done?" v-model="newTodo"
+        <input type="text" class="input" placeholder="Registre aqui suas tarefas pendentes ou futuras" v-model="newTodo"
                @keyup="store($event, newTodo)">
 
         <hr>
@@ -56,7 +56,7 @@
                 </td>
 
                 <td class="has-text-right">
-                    <button class="button is-small" @click="remove">
+                    <button class="button is-small" @click="remove(todo)">
                         Excluir
                     </button>
                 </td>
