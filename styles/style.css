@@ -1,0 +1,8 @@
+#app {
+    width: 600px;
+    margin: 10px auto;
+}
+
+.todo-finished {
+    text-decoration: line-through
+}

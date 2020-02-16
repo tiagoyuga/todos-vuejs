@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todos com VueJs</title>
+
+    <!-- bulma css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <div class="container">
+
+        <h1 class="title">Todos</h1>
+
+        <input type="text" class="input" placeholder="What has to be done?" v-model="newTodo"
+               @keyup="store($event, newTodo)">
+
+        <hr>
+
+        <table class="table is-fullwidth is-narrow">
+
+            <tbody>
+
+            <tr v-for="todo in todos">
+                <td>
+                  <span v-if="!todo.edit">
+
+                    <input type="checkbox"
+                           v-model="todo.finished"
+                           @click="finish(todo)"/>
+
+                    <span
+                            :class="todo.finished ? 'todo-finished' : ''"
+                            @dblclick="edit(todo)">
+                      {{todo.description}}
+                    </span>
+
+                  </span>
+
+                    <input
+                            v-else
+                            v-model="todo.description"
+                            @keyup="update($event, todo)"
+                            @key="update($event, todo)"
+                            @blur="cancelUpdate(todo)"
+                            type="text" class="input">
+                </td>
+
+                <td class="has-text-right">
+                    <button class="button is-small" @click="remove">
+                        Excluir
+                    </button>
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+<!-- include do vuejs-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- logica vuejs-->
+<script src="./scripts/app.js"></script>
+
+</body>
+
+</html>
